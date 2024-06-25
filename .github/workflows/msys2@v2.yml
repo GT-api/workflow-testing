@@ -8,11 +8,11 @@ jobs:
     - name: Setup MSYS2
       uses: msys2/setup-msys2@v2
       with:
-        msystem: MINGW64
+        msystem: UCRT64
         update: true
         install: >-
-          mingw-w64-x86_64-gcc
-          mingw-w64-x86_64-curl
-          mingw-w64-x86_64-jsoncpp
+          mingw-w64-ucrt-x86_64-gcc
+          mingw-w64-ucrt-x86_64-curl
+          mingw-w64-ucrt-x86_64-jsoncpp
     - run: g++ -std=c++2b -Og -g main.cpp .\\include\\sqlite3.o .\\include\\compress.o .\\include\\github.o -o main.exe -lws2_32 -lwinmm -lpthread -lcurl -lssl -ljsoncpp -ftime-report
       shell: msys2 {0}
